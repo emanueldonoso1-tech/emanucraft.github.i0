@@ -1,25 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.carrusel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    gap: 20px;
-}
 
-.carrusel img {
-    width: 600px;
-    border-radius: 10px;
-}
-</style>    
 <title>Las ideas de Emanu</title>
 
 <style>
 body {
-    
     background-color: #111;
     color: white;
     text-align: center;
@@ -41,10 +27,24 @@ body {
 img {
     width: 150px;
 }
+
+/* CARRUSEL */
+.carrusel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.carrusel img {
+    width: 600px;
+    border-radius: 10px;
+}
 </style>
 
 </head>
- <title>Las ideas de Emanu</title>
+
 <body>
 
 <div class="contenedor">
@@ -54,8 +54,7 @@ img {
 
 <p>Bienvenido a mis historias</p>
 
-</body>
-</html>
+<!-- 🎬 CARRUSEL -->
 <div class="carrusel">
     <button onclick="anterior()">⬅️</button>
 
@@ -64,3 +63,27 @@ img {
     <button onclick="siguiente()">➡️</button>
 </div>
 
+<!-- 🧠 JAVASCRIPT -->
+<script>
+let imagenes = ["poster1.jpg", "poster2.jpg", "poster3.jpg"];
+let index = 0;
+
+function siguiente() {
+    index++;
+    if (index >= imagenes.length) {
+        index = 0;
+    }
+    document.getElementById("poster").src = imagenes[index];
+}
+
+function anterior() {
+    index--;
+    if (index < 0) {
+        index = imagenes.length - 1;
+    }
+    document.getElementById("poster").src = imagenes[index];
+}
+</script>
+
+</body>
+</html>
