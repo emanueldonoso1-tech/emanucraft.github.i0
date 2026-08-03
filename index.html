@@ -1,196 +1,364 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-
+<meta charset="UTF-8">
 <title>Las ideas de Emanu</title>
 
 <style>
-body {
-    background: white;
-    color: black;
-    text-align: center;
-    font-family: 'Segoe UI', Arial, sans-serif;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* TITULO */
-.titulo {
-    font-size: 65px;
-    margin-top: 40px;
-    font-weight: bold;
+body{
+    background:white;
+    overflow-x:hidden;
 }
 
-/* CONTENEDOR */
-.contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+/* Fondo del cielo */
+.cielo{
+    height:450px;
+    background:linear-gradient(
+        to bottom,
+        #001b55,
+        #008cff,
+        white
+    );
+    position:relative;
+    overflow:hidden;
 }
 
-/* TEXTO */
-.texto-negro {
-    background: white;
-    color: black;
-    border: 2px solid black;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 22px;
-    margin-top: 20px;
+/* Estrellas */
+.estrella{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    animation:brillar 3s infinite;
 }
 
-/* IMAGEN */
-img {
-    width: 150px;
+@keyframes brillar{
+    0%,100%{
+        opacity:0.2;
+        transform:scale(1);
+    }
+    50%{
+        opacity:1;
+        transform:scale(2);
+    }
 }
 
-/* 🎬 CARRUSEL */
-.carrusel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    gap: 20px;
+
+/* Titulo */
+.titulo{
+    text-align:center;
+    padding-top:80px;
+    color:white;
+    font-size:55px;
+    text-shadow:0 0 15px black;
 }
 
-.carrusel img {
-    width: 650px;
-    border-radius: 12px;
-    transition: 0.3s;
+
+/* Secciones */
+.seccion{
+    text-align:center;
+    margin:50px auto;
 }
 
-.carrusel img:hover {
-    transform: scale(1.05);
+
+h2{
+    font-size:32px;
+    margin-bottom:25px;
 }
 
-/* 🔵 FLECHAS */
-button {
-    background: white;
-    color: #007bff;
-    border: 2px solid #007bff;
-    padding: 12px 18px;
-    font-size: 22px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
+
+/* Carrusel */
+.carrusel{
+    width:650px;
+    height:350px;
+    margin:auto;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-button:hover {
-    background: #007bff;
-    color: white;
+
+.poster{
+    width:550px;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 0 50px white;
+    transition:0.5s;
 }
 
-/* 🎥 POSTERS */
-.posters {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 60px;
+
+.flecha{
+    position:absolute;
+    font-size:60px;
+    cursor:pointer;
+    color:white;
+    text-shadow:0 0 10px black;
+    z-index:5;
 }
 
-.posters img {
-    width: 180px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: 0.3s;
+.izquierda{
+    left:10px;
 }
 
-.posters img:hover {
-    transform: scale(1.1);
+.derecha{
+    right:10px;
 }
 
-/* 💬 TITULO CHAT */
-.chat-titulo {
-    font-size: 30px;
-    margin-top: 60px;
-    background: white;
-    color: black;
-    padding: 15px 30px;
-    border-radius: 15px;
-    border: 2px solid black;
+
+/* Posters verticales */
+
+.vertical{
+    width:250px;
+    height:350px;
 }
 
-/* 💬 CHAT */
-.chat {
-    margin-top: 20px;
+
+/* Chat */
+
+.chat{
+    margin-top:80px;
+    padding:40px;
+    background:#f4f4f4;
 }
 
-#mensajes {
-    background: #f0f0f0;
-    color: black;
-    padding: 15px;
-    height: 200px;
-    width: 300px;
-    margin: auto;
-    border-radius: 10px;
-    overflow-y: scroll;
-    margin-bottom: 10px;
+
+.chat h2{
+    font-size:35px;
 }
+
+
+textarea{
+    width:70%;
+    height:150px;
+    border-radius:15px;
+    padding:15px;
+    font-size:18px;
+}
+
+
+/* Final */
+
+.final{
+    text-align:center;
+    padding:40px;
+    font-size:22px;
+}
+
+
 </style>
 
 </head>
 
+
 <body>
 
-<div class="contenedor">
-    <h1 class="titulo">Las ideas de Emanu</h1>
-    <img src="dibujo.png">
+
+<div class="cielo">
+
+<h1 class="titulo">
+Las ideas de Emanu
+</h1>
+
+
 </div>
 
-<p class="texto-negro">Bienvenido a mis historias</p>
 
-<!-- 🎬 CARRUSEL -->
+
+<section class="seccion">
+
+<h2>Mis ideas</h2>
+
+
 <div class="carrusel">
-    <button onclick="anterior()">❮</button>
-    <img id="poster" src="dibujo.png">
-    <button onclick="siguiente()">❯</button>
+
+<div class="flecha izquierda" onclick="cambiarHorizontal(-1)">❮</div>
+
+<img id="horizontal" class="poster"
+src="poster1.jpg">
+
+
+<div class="flecha derecha" onclick="cambiarHorizontal(1)">❯</div>
+
+
 </div>
 
-<!-- 🎥 POSTERS -->
-<div class="posters">
-    <img src="dibujo.png">
-    <img src="dibujo.png">
-    <img src="dibujo.png">
+</section>
+
+
+
+
+<section class="seccion">
+
+<h2>Mis historias</h2>
+
+
+<div class="carrusel">
+
+
+<div class="flecha izquierda" onclick="cambiarVertical(-1)">❮</div>
+
+
+<img id="vertical" class="poster vertical"
+src="vertical1.jpg">
+
+
+<div class="flecha derecha" onclick="cambiarVertical(1)">❯</div>
+
+
 </div>
 
-<!-- 💬 CHAT -->
-<div class="chat-titulo">CHATEA TUS IDEAS</div>
 
-<div class="chat">
-    <div id="mensajes"></div>
-    <input type="text" id="inputMensaje" placeholder="Escribe algo...">
-    <button onclick="enviarMensaje()">Enviar</button>
+</section>
+
+
+
+
+
+<section class="chat">
+
+
+<h2>
+Chatea tus ideas
+</h2>
+
+
+<textarea placeholder="Escribe tu idea aquí..."></textarea>
+
+
+</section>
+
+
+
+<div class="final">
+
+Gracias por ver mi web.
+
 </div>
+
+
+
+
 
 <script>
-let imagenes = ["dibujo.png", "dibujo.png"];
-let index = 0;
 
-function siguiente() {
-    index++;
-    if (index >= imagenes.length) index = 0;
-    document.getElementById("poster").src = imagenes[index];
+
+// ESTRELLAS
+
+for(let i=0;i<80;i++){
+
+let estrella=document.createElement("div");
+
+estrella.className="estrella";
+
+estrella.style.left=Math.random()*100+"%";
+
+estrella.style.top=Math.random()*450+"px";
+
+estrella.style.animationDelay=Math.random()*3+"s";
+
+document.querySelector(".cielo").appendChild(estrella);
+
 }
 
-function anterior() {
-    index--;
-    if (index < 0) index = imagenes.length - 1;
-    document.getElementById("poster").src = imagenes[index];
+
+
+// POSTERS HORIZONTALES
+
+let horizontales=[
+"poster1.jpg",
+"poster2.jpg",
+"poster3.jpg"
+];
+
+
+let h=0;
+
+
+function cambiarHorizontal(valor){
+
+h+=valor;
+
+if(h<0)
+h=horizontales.length-1;
+
+if(h>=horizontales.length)
+h=0;
+
+
+document.getElementById("horizontal").src=horizontales[h];
+
 }
 
-function enviarMensaje() {
-    var input = document.getElementById("inputMensaje");
-    var mensaje = input.value;
 
-    if (mensaje !== "") {
-        var caja = document.getElementById("mensajes");
-        var nuevo = document.createElement("p");
-        nuevo.textContent = "Tú: " + mensaje;
-        caja.appendChild(nuevo);
-        input.value = "";
-    }
+
+setInterval(()=>{
+
+cambiarHorizontal(1);
+
+},10000);
+
+
+
+
+
+// POSTERS VERTICALES
+
+
+let verticales=[
+
+"vertical1.jpg",
+"vertical2.jpg",
+"vertical3.jpg"
+
+];
+
+
+let v=0;
+
+
+
+function cambiarVertical(valor){
+
+v+=valor;
+
+
+if(v<0)
+v=verticales.length-1;
+
+
+if(v>=verticales.length)
+v=0;
+
+
+document.getElementById("vertical").src=verticales[v];
+
 }
+
+
+
+
+setInterval(()=>{
+
+cambiarVertical(1);
+
+},10000);
+
+
+
 </script>
+
+
 
 </body>
 </html>
