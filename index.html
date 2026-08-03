@@ -6,16 +6,17 @@
 
 <style>
 body {
-    background-color: #111;
+    background: #0f0f0f;
     color: white;
     text-align: center;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', 'Poppins', sans-serif;
 }
 
 /* TITULO */
 .titulo {
-    font-size: 60px;
-    margin-top: 50px;
+    font-size: 65px;
+    margin-top: 40px;
+    font-weight: bold;
 }
 
 /* CONTENEDOR */
@@ -26,21 +27,23 @@ body {
     gap: 20px;
 }
 
-/* TEXTO NEGRO */
+/* TEXTO TIPO CANVA */
 .texto-negro {
     color: black;
     background: white;
     display: inline-block;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-top: 20px;
 }
 
-/* IMAGEN PEQUEÑA */
+/* IMAGEN */
 img {
     width: 150px;
 }
 
-/* CARRUSEL */
+/* 🎬 CARRUSEL */
 .carrusel {
     display: flex;
     justify-content: center;
@@ -50,56 +53,76 @@ img {
 }
 
 .carrusel img {
-    width: 600px;
-    border-radius: 10px;
+    width: 650px;
+    border-radius: 12px;
     transition: transform 0.3s;
 }
 
 .carrusel img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* FLECHAS AZULES */
+/* 🔵 FLECHAS ESTILO CINESA */
 button {
-    background: blue;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 10px;
+    background: rgba(0, 123, 255, 0.2);
+    color: #00aaff;
+    border: 2px solid #00aaff;
+    padding: 12px 18px;
+    font-size: 22px;
+    border-radius: 50%;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* POSTERS VERTICALES */
+button:hover {
+    background: #00aaff;
+    color: white;
+}
+
+/* 🎥 POSTERS */
 .posters {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 50px;
+    gap: 25px;
+    margin-top: 60px;
 }
 
 .posters img {
-    width: 200px;
-    height: 300px;
+    width: 180px;
+    height: 280px;
     object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    border-radius: 12px;
+    transition: 0.3s;
 }
 
 .posters img:hover {
     transform: scale(1.1);
 }
 
-/* CHAT */
+/* 💬 TITULO CHAT GRANDE */
+.chat-titulo {
+    font-size: 30px;
+    margin-top: 60px;
+    background: white;
+    color: black;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+}
+
+/* 💬 CHAT */
 .chat {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 #mensajes {
-    background: #222;
+    background: #1a1a1a;
     color: white;
-    padding: 10px;
-    height: 150px;
+    padding: 15px;
+    height: 200px;
+    width: 300px;
+    margin: auto;
+    border-radius: 10px;
     overflow-y: scroll;
     margin-bottom: 10px;
 }
@@ -118,21 +141,21 @@ button {
 
 <!-- 🎬 CARRUSEL -->
 <div class="carrusel">
-    <button onclick="anterior()">⬅️</button>
+    <button onclick="anterior()">❮</button>
     <img id="poster" src="dibujo.png">
-    <button onclick="siguiente()">➡️</button>
+    <button onclick="siguiente()">❯</button>
 </div>
 
-<!-- 🎥 POSTERS VERTICALES -->
+<!-- 🎥 POSTERS -->
 <div class="posters">
     <img src="dibujo.png">
     <img src="dibujo.png">
     <img src="dibujo.png">
 </div>
 
-<p class="texto-negro">Chatea tus ideas</p>
-
 <!-- 💬 CHAT -->
+<div class="chat-titulo">CHATEA TUS IDEAS</div>
+
 <div class="chat">
     <div id="mensajes"></div>
     <input type="text" id="inputMensaje" placeholder="Escribe algo...">
