@@ -1,159 +1,325 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <title>Las ideas de Emanu</title>
 
+
 <style>
 
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
 }
+
 
 body{
-    background:white;
-    overflow-x:hidden;
+background:white;
+overflow-x:hidden;
 }
 
-/* Fondo del cielo */
+
+
+/* CIELO */
+
 .cielo{
-    height:450px;
-    background:linear-gradient(
-        to bottom,
-        #001b55,
-        #008cff,
-        white
-    );
-    position:relative;
-    overflow:hidden;
+
+height:450px;
+
+background:linear-gradient(
+to bottom,
+#001b55,
+#008cff,
+white
+);
+
+position:relative;
+overflow:hidden;
+
 }
 
-/* Estrellas */
+
+
+/* ESTRELLAS */
+
+
 .estrella{
-    position:absolute;
-    width:4px;
-    height:4px;
-    background:white;
-    border-radius:50%;
-    animation:brillar 3s infinite;
-}
 
-@keyframes brillar{
-    0%,100%{
-        opacity:0.2;
-        transform:scale(1);
-    }
-    50%{
-        opacity:1;
-        transform:scale(2);
-    }
+position:absolute;
+
+width:4px;
+height:4px;
+
+background:white;
+
+border-radius:50%;
+
+animation:brillo 3s infinite;
+
 }
 
 
-/* Titulo */
+@keyframes brillo{
+
+0%,100%{
+opacity:0.2;
+transform:scale(1);
+}
+
+50%{
+opacity:1;
+transform:scale(2);
+}
+
+}
+
+
+
+
+
+/* TITULO CON IMAGEN */
+
+
 .titulo{
-    text-align:center;
-    padding-top:80px;
-    color:white;
-    font-size:55px;
-    text-shadow:0 0 15px black;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:25px;
+
+padding-top:80px;
+
+color:white;
+
+text-shadow:0 0 15px black;
+
 }
 
 
-/* Secciones */
+
+.titulo h1{
+
+font-size:55px;
+
+}
+
+
+
+.titulo img{
+
+width:120px;
+
+height:120px;
+
+object-fit:contain;
+
+}
+
+
+
+
+/* SECCIONES */
+
+
 .seccion{
-    text-align:center;
-    margin:50px auto;
+
+text-align:center;
+
+margin:60px auto;
+
 }
+
 
 
 h2{
-    font-size:32px;
-    margin-bottom:25px;
+
+font-size:35px;
+
+margin-bottom:30px;
+
 }
 
 
-/* Carrusel */
+
+
+
+/* CARRUSEL */
+
+
 .carrusel{
-    width:650px;
-    height:350px;
-    margin:auto;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+
+width:700px;
+
+height:370px;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+position:relative;
+
 }
+
 
 
 .poster{
-    width:550px;
-    height:300px;
-    object-fit:cover;
-    border-radius:20px;
-    box-shadow:0 0 50px white;
-    transition:0.5s;
+
+width:550px;
+
+height:300px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+box-shadow:0 0 40px #555;
+
 }
+
+
+
 
 
 .flecha{
-    position:absolute;
-    font-size:60px;
-    cursor:pointer;
-    color:white;
-    text-shadow:0 0 10px black;
-    z-index:5;
+
+position:absolute;
+
+font-size:70px;
+
+cursor:pointer;
+
+color:white;
+
+text-shadow:0 0 10px black;
+
 }
+
+
 
 .izquierda{
-    left:10px;
+
+left:20px;
+
 }
+
 
 .derecha{
-    right:10px;
+
+right:20px;
+
 }
 
 
-/* Posters verticales */
+
+
+/* VERTICALES */
+
 
 .vertical{
-    width:250px;
-    height:350px;
+
+width:250px;
+
+height:350px;
+
 }
 
 
-/* Chat */
+
+
+/* CHAT */
+
 
 .chat{
-    margin-top:80px;
-    padding:40px;
-    background:#f4f4f4;
+
+background:#f3f3f3;
+
+padding:50px;
+
+text-align:center;
+
 }
+
 
 
 .chat h2{
-    font-size:35px;
+
+font-size:35px;
+
 }
+
 
 
 textarea{
-    width:70%;
-    height:150px;
-    border-radius:15px;
-    padding:15px;
-    font-size:18px;
+
+width:70%;
+
+height:150px;
+
+border-radius:15px;
+
+padding:15px;
+
+font-size:18px;
+
 }
 
 
-/* Final */
+
+
+button{
+
+margin-top:20px;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:20px;
+
+background:#008cff;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+
+
+
+button:hover{
+
+transform:scale(1.1);
+
+}
+
+
+
 
 .final{
-    text-align:center;
-    padding:40px;
-    font-size:22px;
+
+text-align:center;
+
+padding:40px;
+
+font-size:22px;
+
 }
+
 
 
 </style>
@@ -164,9 +330,19 @@ textarea{
 <body>
 
 
+
 <div class="cielo">
 
-<h1 class="titulo">
+
+<div class="titulo">
+
+
+<!-- AQUI VA TU IMAGEN -->
+
+<img src="emanu.png">
+
+
+<h1>
 Las ideas de Emanu
 </h1>
 
@@ -174,52 +350,81 @@ Las ideas de Emanu
 </div>
 
 
-
-<section class="seccion">
-
-<h2>Mis ideas</h2>
-
-
-<div class="carrusel">
-
-<div class="flecha izquierda" onclick="cambiarHorizontal(-1)">❮</div>
-
-<img id="horizontal" class="poster"
-src="poster1.jpg">
-
-
-<div class="flecha derecha" onclick="cambiarHorizontal(1)">❯</div>
-
-
 </div>
 
-</section>
 
 
 
 
 <section class="seccion">
 
-<h2>Mis historias</h2>
+
+<h2>
+Posters
+</h2>
+
 
 
 <div class="carrusel">
 
 
-<div class="flecha izquierda" onclick="cambiarVertical(-1)">❮</div>
+<div class="flecha izquierda" onclick="cambiarHorizontal(-1)">
+❮
+</div>
 
 
-<img id="vertical" class="poster vertical"
-src="vertical1.jpg">
+
+<img id="horizontal" class="poster" src="poster1.jpg">
 
 
-<div class="flecha derecha" onclick="cambiarVertical(1)">❯</div>
+
+<div class="flecha derecha" onclick="cambiarHorizontal(1)">
+❯
+</div>
 
 
 </div>
 
 
 </section>
+
+
+
+
+
+<section class="seccion">
+
+
+<h2>
+Historias
+</h2>
+
+
+
+<div class="carrusel">
+
+
+<div class="flecha izquierda" onclick="cambiarVertical(-1)">
+❮
+</div>
+
+
+
+<img id="vertical" class="poster vertical" src="vertical1.jpg">
+
+
+
+<div class="flecha derecha" onclick="cambiarVertical(1)">
+❯
+</div>
+
+
+
+</div>
+
+
+</section>
+
 
 
 
@@ -233,10 +438,22 @@ Chatea tus ideas
 </h2>
 
 
+
 <textarea placeholder="Escribe tu idea aquí..."></textarea>
 
 
+<br>
+
+
+<button>
+Enviar idea
+</button>
+
+
+
 </section>
+
+
 
 
 
@@ -253,50 +470,70 @@ Gracias por ver mi web.
 <script>
 
 
-// ESTRELLAS
+// CREAR ESTRELLAS
+
 
 for(let i=0;i<80;i++){
+
 
 let estrella=document.createElement("div");
 
 estrella.className="estrella";
 
+
 estrella.style.left=Math.random()*100+"%";
+
 
 estrella.style.top=Math.random()*450+"px";
 
+
 estrella.style.animationDelay=Math.random()*3+"s";
 
+
 document.querySelector(".cielo").appendChild(estrella);
+
 
 }
 
 
 
+
+
+
 // POSTERS HORIZONTALES
 
+
 let horizontales=[
+
 "poster1.jpg",
+
 "poster2.jpg",
+
 "poster3.jpg"
+
 ];
 
 
 let h=0;
 
 
+
 function cambiarHorizontal(valor){
+
 
 h+=valor;
 
+
 if(h<0)
 h=horizontales.length-1;
+
 
 if(h>=horizontales.length)
 h=0;
 
 
 document.getElementById("horizontal").src=horizontales[h];
+
 
 }
 
@@ -312,13 +549,17 @@ cambiarHorizontal(1);
 
 
 
+
 // POSTERS VERTICALES
+
 
 
 let verticales=[
 
 "vertical1.jpg",
+
 "vertical2.jpg",
+
 "vertical3.jpg"
 
 ];
@@ -329,6 +570,7 @@ let v=0;
 
 
 function cambiarVertical(valor){
+
 
 v+=valor;
 
@@ -341,7 +583,9 @@ if(v>=verticales.length)
 v=0;
 
 
+
 document.getElementById("vertical").src=verticales[v];
+
 
 }
 
@@ -359,6 +603,6 @@ cambiarVertical(1);
 </script>
 
 
-
 </body>
+
 </html>
